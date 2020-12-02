@@ -6,7 +6,7 @@ class Password:
         self.char = 'a'
         self.password = ''
 
-    def read_line(self, line):
+    def parse_line(self, line):
         loc, char, self.password = line.split(' ')
         self.char = char[0]
         self.first = int(loc.split('-')[0]) - 1
@@ -28,7 +28,7 @@ def number_of_correct_passwords(input_file):
     with open(input_file, 'r') as f:
         for line in f:
             password = Password()
-            password.read_line(line)
+            password.parse_line(line)
             count += password.is_correct()
     return count
 
