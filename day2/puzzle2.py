@@ -14,7 +14,7 @@ class Password:
 
     def is_correct(self):
         if self.first >= len(self.password) or self.second >= len(self.password):
-                return 0
+            return 0
         combined = ''.join([self.password[self.first], self.password[self.second]])
         if self.char*2 == combined:
             return 0
