@@ -1,4 +1,5 @@
 import sys
+import re
 
 class Passport():
 	def __init__(self):
@@ -29,9 +30,9 @@ class Passport():
 		return False
 
 	def validate_hcl(self):
+		reg = re.compile('^[A-Fa-f0-9]{6}$')
 		if self.passport_details['hcl'][0] == '#' and \
-			len(self.passport_details['hcl'][1:]) == 6 and \
-			self.passport_details['hcl'][1:].isalnum():
+			reg.match(self.passport_details['hcl'][1:]):
 			return True
 		return False
 
@@ -74,6 +75,7 @@ class Passport():
 		password_keys = set(self.passport_details.keys())	
 		diff = correct_passport_keys - password_keys
 		if ((not diff or diff == {'cid'}) and self.validate_keys()):
+			print(self.passport_details['pid'])
 			return True
 		return False
 
