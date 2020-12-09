@@ -15,7 +15,6 @@ def sum_exist(target, lookup, preamble):
             return True
     return False
 
-
 def find_non_valid(filename, preamble, numbers):
     lookup = set(preamble)
     for idx, number in enumerate(numbers):
@@ -28,12 +27,6 @@ def find_non_valid(filename, preamble, numbers):
             return number, idx
     return None, -1
 
-def calculate_incremental_sum(numbers):
-    sum = 0
-    for number in numbers:
-        sum += number
-    return number
-
 def find_sum(numbers, stop_idx, target_sum):
     start = 0
     current_sum = 0
@@ -45,7 +38,6 @@ def find_sum(numbers, stop_idx, target_sum):
         if current_sum == target_sum:
             return min(numbers[start:i+1]) + max(numbers[start:i+1])
     return None
-
 
 def main():
     parser = argparse.ArgumentParser()
